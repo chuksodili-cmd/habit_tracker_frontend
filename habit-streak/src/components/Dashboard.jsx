@@ -29,18 +29,18 @@ export default function Dashboard(){
                     "Content-Type": "application/json",
                     "Authorization": 'Bearer $(token)'
                 }
-        })
+            })
 
-        if (response.ok){
-            const data = await response.json()
-            setHabits(data)
+            if (response.ok){
+                const data = await response.json()
+                setHabits(data)
+            }
+        } catch (error) {
+            console.log(error)
+        } finally{
+            setLoading(false)
         }
-    } catch (error) {
-        console.log(error)
-    } finally{
-        setLoading(false)
     }
-
     function addHabit(e){
         e.preventDefault()
         
